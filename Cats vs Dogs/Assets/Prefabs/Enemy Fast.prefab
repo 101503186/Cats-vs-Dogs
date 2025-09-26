@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3606472146724901995}
   - component: {fileID: 6604665445931754488}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Enemy Fast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.50464165, y: -5.1719713, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.88888896}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 0.59180164, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1193347d8e5644ba37feb4b8c359a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.2
-  rotateSpeed: 0.025
+  speed: 3.5
+  rotateSpeed: 0.05
   target: {fileID: 0}
 --- !u!60 &3606472146724901995
 PolygonCollider2D:

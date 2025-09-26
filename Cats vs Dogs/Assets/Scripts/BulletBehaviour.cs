@@ -17,4 +17,9 @@ public class BulletBehavior : MonoBehaviour
         transform.position += transform.right * Time.deltaTime * bulletSpeed;
         Destroy(gameObject, 18 / bulletSpeed);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
 }
