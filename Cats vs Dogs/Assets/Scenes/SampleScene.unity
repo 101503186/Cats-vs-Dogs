@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275bb1e421707c340a4921e4579cd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
+  spawnRate: 4
   enemyPrefabs:
   - {fileID: 313010618590399463, guid: 1d604000d7c899245881044eda22c589, type: 3}
   - {fileID: 313010618590399463, guid: 97ccdd5d383e65b4abc222881eac57cd, type: 3}
@@ -232,7 +232,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4908783130571811157, guid: b33b4e79b14a8454998b1626ba537c25, type: 3}
-  shootCooldown: 2
+  shootCooldown: 1.5
 --- !u!114 &1446438162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275bb1e421707c340a4921e4579cd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
+  spawnRate: 4
   enemyPrefabs:
   - {fileID: 313010618590399463, guid: 1d604000d7c899245881044eda22c589, type: 3}
   - {fileID: 313010618590399463, guid: 97ccdd5d383e65b4abc222881eac57cd, type: 3}
@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275bb1e421707c340a4921e4579cd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
+  spawnRate: 4
   enemyPrefabs:
   - {fileID: 313010618590399463, guid: 1d604000d7c899245881044eda22c589, type: 3}
   - {fileID: 313010618590399463, guid: 97ccdd5d383e65b4abc222881eac57cd, type: 3}
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275bb1e421707c340a4921e4579cd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
+  spawnRate: 4
   enemyPrefabs:
   - {fileID: 313010618590399463, guid: 1d604000d7c899245881044eda22c589, type: 3}
   - {fileID: 313010618590399463, guid: 97ccdd5d383e65b4abc222881eac57cd, type: 3}

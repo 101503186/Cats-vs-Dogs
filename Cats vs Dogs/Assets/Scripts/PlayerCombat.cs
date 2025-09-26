@@ -9,6 +9,9 @@ public class PlayerCombat : MonoBehaviour
     private float shootCooldown = 1.5f;
     private bool canFire = true;
 
+    public static float bulletSpeed = 5f;
+
+    private bool canUpgrade = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +25,8 @@ public class PlayerCombat : MonoBehaviour
         {
             Shooting();
         }
+
+        StartCoroutine(TemporaryUpgrading());
     }
 
     void Shooting()
@@ -36,5 +41,18 @@ public class PlayerCombat : MonoBehaviour
         yield return new WaitForSeconds(shootCooldown);
         canFire = true;
         Debug.Log("coroutine initiated");
+    }
+
+    private IEnumerator TemporaryUpgrading()
+    {
+        if (canUpgrade)
+        {
+            canUpgrade = false;
+            yield return new WaitForSeconds(10);
+            shootCooldown = shootCooldown / 1.15f;
+            bulletSpeed = bulletSpeed * 1.05f;
+            yield return new WaitForSeconds(1);
+            canUpgrade = true;
+        }
     }
 }
