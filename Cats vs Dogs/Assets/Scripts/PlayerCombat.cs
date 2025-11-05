@@ -26,7 +26,7 @@ public class PlayerCombat : MonoBehaviour
             Shooting();
         }
 
-        StartCoroutine(TemporaryUpgrading());
+        //StartCoroutine(TemporaryUpgrading());
     }
 
     void Shooting()
@@ -53,6 +53,14 @@ public class PlayerCombat : MonoBehaviour
             bulletSpeed = bulletSpeed * 1.05f;
             yield return new WaitForSeconds(1);
             canUpgrade = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
         }
     }
 }

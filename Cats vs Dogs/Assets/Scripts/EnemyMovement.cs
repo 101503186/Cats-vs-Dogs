@@ -8,6 +8,8 @@ public class EnemyMovement : MonoBehaviour
     public Transform target;
     private Rigidbody2D rb;
 
+    public GameObject experiencePickup;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,6 +55,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
+            Instantiate(experiencePickup, transform.position, transform.rotation);
         }
     }
 }

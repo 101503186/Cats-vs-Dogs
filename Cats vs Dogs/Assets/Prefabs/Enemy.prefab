@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6604665445931754488}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   speed: 3.2
   rotateSpeed: 0.025
   target: {fileID: 0}
+  experiencePickup: {fileID: 3724966408157445909, guid: ad45e0a0f3b6d9e4ca392b28806ea714, type: 3}
 --- !u!60 &3606472146724901995
 PolygonCollider2D:
   m_ObjectHideFlags: 0
