@@ -17,10 +17,13 @@ public class Experience : MonoBehaviour
     [SerializeField] TextMeshProUGUI experienceText;
     [SerializeField] Image experienceFill;
 
+    UpgradeManager upgradeManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         UpdateLevel();
+        upgradeManager = FindFirstObjectByType<UpgradeManager>();
     }
 
     // Update is called once per frame
@@ -42,6 +45,7 @@ public class Experience : MonoBehaviour
         {
             currentLevel++;
             UpdateLevel();
+            upgradeManager.ShowPanel();
         }
     }
 

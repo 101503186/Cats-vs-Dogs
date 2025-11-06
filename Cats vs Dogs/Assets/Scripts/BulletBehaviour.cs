@@ -4,15 +4,19 @@ using UnityEngine;
 public class BulletBehavior : MonoBehaviour
 {
     public float localBulletSpeed = 5f;
-
-    void Start()
+    PlayerCombat playerCombat;
+    
+    private void Awake()
     {
-        localBulletSpeed = PlayerCombat.bulletSpeed;
+        playerCombat = FindFirstObjectByType<PlayerCombat>();
+        localBulletSpeed = playerCombat.bulletSpeed;
+        transform.localScale = playerCombat.bulletSize;
     }
 
     void Update()
     {
         transform.position += transform.right * Time.deltaTime * localBulletSpeed;
+        transform.localScale = playerCombat.bulletSize;
         Destroy(gameObject, 18 / localBulletSpeed);
     }
 
