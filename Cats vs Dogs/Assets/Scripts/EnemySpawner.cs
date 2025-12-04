@@ -15,8 +15,11 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 offset;
     private Vector3 vel = Vector3.zero;
 
+    private Experience experience;
+
     private void Start()
     {
+        experience = FindFirstObjectByType<Experience>();
         StartCoroutine(Spawner());
     }
 
@@ -36,10 +39,17 @@ public class EnemySpawner : MonoBehaviour
         while (canSpawn)
         {
             yield return wait;
-            int rand = Random.Range(0, enemyPrefabs.Length);
-            GameObject enemyToSpawn = enemyPrefabs[rand];
 
-            Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+            int playerLevel = (experience != null) ? experience.CurrentLevel : 1;
+            int spawnAmount = 1 + (playerLevel / 5);
+
+            for (int i = 0; i < spawnAmount; i++)
+            {
+                int rand = Random.Range(0, enemyPrefabs.Length);
+                GameObject enemyToSpawn = enemyPrefabs[rand];
+
+                Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+            }
         }
     }
 }
