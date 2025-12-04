@@ -12,6 +12,8 @@ public class Experience : MonoBehaviour
     int previousLevelExperience;
     int nextLevelExperience;
 
+    public int CurrentLevel => currentLevel;
+
     [Header("Interface")]
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI experienceText;
@@ -39,7 +41,7 @@ public class Experience : MonoBehaviour
         UpdateInterface();
     }
 
-    void CheckForLevelUp()
+    public void CheckForLevelUp()
     {
         if(totalExperience >= nextLevelExperience)
         {
@@ -65,4 +67,10 @@ public class Experience : MonoBehaviour
         experienceText.text = start + " exp / " + end + " exp";
         experienceFill.fillAmount = (float)start / (float)end;
     }
+
+    public int ExperienceToNextLevel()
+    {
+        return nextLevelExperience - totalExperience;
+    }
+
 }
