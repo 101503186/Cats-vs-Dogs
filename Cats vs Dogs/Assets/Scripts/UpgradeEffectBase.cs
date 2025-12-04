@@ -10,8 +10,6 @@ public class UpgradeEffectBase : ScriptableObject
     [TextArea]
     [SerializeField] string description;
 
-    [SerializeField] Sprite icon;
-
     [Header("Effect")]
     [SerializeField] UpgradeType upgradeType;
 
@@ -20,7 +18,6 @@ public class UpgradeEffectBase : ScriptableObject
 
     public string Name => upgradeName;
     public string Description => description;
-    public Sprite Icon => icon;
     public UpgradeType Type => upgradeType;
     public float Value => value;
     public bool IsPercentage => isPercentage;
@@ -31,5 +28,6 @@ public enum UpgradeType
     MoveSpeed,
     ShootCooldown,
     BulletSpeed,
-    BulletSize
+    BulletSize,
+    ProjectileCount
 }

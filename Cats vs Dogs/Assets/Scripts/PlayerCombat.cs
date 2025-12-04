@@ -10,6 +10,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] private Vector3 bulletSize = new Vector3(0.85f, 0.5f, 0.85f);
 
+    [SerializeField] public int ProjectileCount = 1;
+
     private bool canFire = true;
 
     public float ShootCooldown
@@ -43,15 +45,23 @@ public class PlayerCombat : MonoBehaviour
 
     void Shooting()
     {
-        GameObject newBullet = Instantiate(bullet, transform.position, transform.rotation);
+        float angleStep = 10f;   // how wide the spread is
+        float startAngle = -(angleStep * (ProjectileCount - 1)) / 2;
 
-        // Apply modified stats to the bullet
-        newBullet.transform.localScale = bulletSize;
-
-        Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        for (int i = 0; i < ProjectileCount; i++)
         {
-            rb.linearVelocity = transform.right * bulletSpeed;
+            float angle = startAngle + angleStep * i;
+            Quaternion rot = transform.rotation * Quaternion.Euler(0, 0, angle);
+
+            GameObject newBullet = Instantiate(bullet, transform.position, rot);
+
+            newBullet.transform.localScale = Vector3.one * BulletSize;
+
+            Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = rot * Vector2.right * bulletSpeed;
+            }
         }
 
         canFire = false;

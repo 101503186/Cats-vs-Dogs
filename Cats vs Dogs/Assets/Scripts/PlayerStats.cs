@@ -34,4 +34,11 @@ public class PlayerStats : MonoBehaviour
         get => combat.BulletSize;
         set => combat.BulletSize = value;
     }
+
+    public int ProjectileCount
+    {
+        get => combat.ProjectileCount;
+        set => combat.ProjectileCount = value;
+    }
+
 }

@@ -46,6 +46,14 @@ public class UpgradeEffect
                 if (_base.IsPercentage) player.BulletSize *= (1 + amt);
                 else player.BulletSize += amt;
                 break;
+
+            case UpgradeType.ProjectileCount:
+                if (_base.IsPercentage)
+                    player.ProjectileCount = Mathf.RoundToInt(player.ProjectileCount * (1 + amt));
+                else
+                    player.ProjectileCount += Mathf.RoundToInt(amt);
+                break;
+
         }
     }
 }
