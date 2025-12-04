@@ -9,14 +9,14 @@ public class BulletBehavior : MonoBehaviour
     private void Awake()
     {
         playerCombat = FindFirstObjectByType<PlayerCombat>();
-        localBulletSpeed = playerCombat.bulletSpeed;
-        transform.localScale = playerCombat.bulletSize;
+        localBulletSpeed = playerCombat.BulletSpeed;
+        transform.localScale = Vector3.one * playerCombat.BulletSize;
     }
 
     void Update()
     {
         transform.position += transform.right * Time.deltaTime * localBulletSpeed;
-        transform.localScale = playerCombat.bulletSize;
+        transform.localScale = Vector3.one * playerCombat.BulletSize;
         Destroy(gameObject, 18 / localBulletSpeed);
     }
 
