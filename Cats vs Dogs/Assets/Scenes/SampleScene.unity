@@ -269,13 +269,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2201920312050569499, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_text
-      value: Bullet Speed
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2497470713853916255, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_text
-      value: '+10% Bullet Speed
-
-'
+      value: Upgrade 3
       objectReference: {fileID: 0}
     - target: {fileID: 5400092750579704022, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_Pivot.x
@@ -375,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9090955466492794589, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: IncreaseBulletSpeed
+      value: ChooseUpgradeThree
       objectReference: {fileID: 0}
     - target: {fileID: 9090955466492794589, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -555,7 +553,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201412102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1686.676}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -675,7 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275bb1e421707c340a4921e4579cd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 10
+  spawnRate: 8
   enemyPrefabs:
   - {fileID: 313010618590399463, guid: 1d604000d7c899245881044eda22c589, type: 3}
   - {fileID: 313010618590399463, guid: 97ccdd5d383e65b4abc222881eac57cd, type: 3}
@@ -1178,7 +1176,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011703546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1686.676}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1230,6 +1228,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011703546}
   m_CullTransparentMesh: 1
+--- !u!114 &1246554742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2497470713853916255, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
+  m_PrefabInstance: {fileID: 32392944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377088790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,11 +1387,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2201920312050569499, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_text
-      value: Bullet Size
+      value: '
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 2497470713853916255, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_text
-      value: +10% Bullet Size
+      value: Upgrade 2
       objectReference: {fileID: 0}
     - target: {fileID: 5400092750579704022, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_Pivot.x
@@ -1482,7 +1493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9090955466492794589, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: IncreaseBulletSize
+      value: ChooseUpgradeTwo
       objectReference: {fileID: 0}
     - target: {fileID: 9090955466492794589, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1517,6 +1528,7 @@ GameObject:
   - component: {fileID: 1446438161}
   - component: {fileID: 1446438162}
   - component: {fileID: 1446438163}
+  - component: {fileID: 1446438164}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1650,6 +1662,7 @@ MonoBehaviour:
   bullet: {fileID: 4908783130571811157, guid: b33b4e79b14a8454998b1626ba537c25, type: 3}
   shootCooldown: 1.5
   bulletSpeed: 5
+  bulletSize: {x: 1, y: 1, z: 1}
 --- !u!114 &1446438162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,6 +1721,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1446438164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446438156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e3ec3baf9a0fb4495fda3c505ccd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1644158659 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5400092750579704022, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
@@ -1742,7 +1767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275bb1e421707c340a4921e4579cd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 10
+  spawnRate: 8
   enemyPrefabs:
   - {fileID: 313010618590399463, guid: 1d604000d7c899245881044eda22c589, type: 3}
   - {fileID: 313010618590399463, guid: 97ccdd5d383e65b4abc222881eac57cd, type: 3}
@@ -1901,7 +1926,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradePanel: {fileID: 1011703546}
-  bulletPrefab: {fileID: 4908783130571811157, guid: b33b4e79b14a8454998b1626ba537c25, type: 3}
+  upgradeDescriptionOne: {fileID: 2099446738}
+  upgradeDescriptionTwo: {fileID: 1914702294}
+  upgradeDescriptionThree: {fileID: 1246554742}
+  upgradePool:
+  - {fileID: 11400000, guid: fe64b9508b23fcb46a0884422abe25f6, type: 2}
+  - {fileID: 11400000, guid: 91d5a7eccec982a4caa97179a69d1c28, type: 2}
+  - {fileID: 11400000, guid: 66e771df2d57ea8448b225dc3abb75b4, type: 2}
+  - {fileID: 11400000, guid: 75810fc1cdbb0c04a94ae50204995050, type: 2}
 --- !u!1001 &1730662891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1914,9 +1946,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: AtkSpd
       objectReference: {fileID: 0}
+    - target: {fileID: 2201920312050569499, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2497470713853916255, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_text
-      value: +10% Attack Speed
+      value: Upgrad 1
       objectReference: {fileID: 0}
     - target: {fileID: 5400092750579704022, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_Pivot.x
@@ -2016,7 +2052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9090955466492794589, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: IncreaseAttackSpeed
+      value: ChooseUpgradeOne
       objectReference: {fileID: 0}
     - target: {fileID: 9090955466492794589, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2080,7 +2116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275bb1e421707c340a4921e4579cd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 10
+  spawnRate: 8
   enemyPrefabs:
   - {fileID: 313010618590399463, guid: 1d604000d7c899245881044eda22c589, type: 3}
   - {fileID: 313010618590399463, guid: 97ccdd5d383e65b4abc222881eac57cd, type: 3}
@@ -2221,6 +2257,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1914702294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2497470713853916255, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
+  m_PrefabInstance: {fileID: 1426926472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1984239363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,7 +2297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275bb1e421707c340a4921e4579cd46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 10
+  spawnRate: 8
   enemyPrefabs:
   - {fileID: 313010618590399463, guid: 1d604000d7c899245881044eda22c589, type: 3}
   - {fileID: 313010618590399463, guid: 97ccdd5d383e65b4abc222881eac57cd, type: 3}
@@ -2272,6 +2319,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2099446738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2497470713853916255, guid: 9c5dcbce190c51745b0a1c781f707f1f, type: 3}
+  m_PrefabInstance: {fileID: 1730662891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2100625127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,7 +2398,7 @@ Canvas:
   m_GameObject: {fileID: 2100625127}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
