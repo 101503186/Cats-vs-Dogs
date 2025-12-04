@@ -1,49 +1,61 @@
 using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class UpgradeManager : MonoBehaviour
 {
-
+    [Header("UI")]
     [SerializeField] GameObject upgradePanel;
-    [SerializeField] GameObject bulletPrefab;
 
-    PlayerCombat playerCombat;
-    BulletBehavior bulletBehavior;
+    [SerializeField] TMP_Text upgradeDescriptionOne;
+    [SerializeField] TMP_Text upgradeDescriptionTwo;
+    [SerializeField] TMP_Text upgradeDescriptionThree;
+
+    [Header("Upgrade Pool")]
+    [SerializeField] List<UpgradeEffectBase> upgradePool;
+
+    PlayerStats playerStats;
+
+    UpgradeEffect option1;
+    UpgradeEffect option2;
+    UpgradeEffect option3;
 
     private void Start()
     {
-        playerCombat = FindFirstObjectByType<PlayerCombat>();
-        bulletBehavior = FindFirstObjectByType<BulletBehavior>();
-
+        playerStats = FindFirstObjectByType<PlayerStats>();
         upgradePanel.SetActive(false);
     }
 
     public void ShowPanel()
     {
+        Time.timeScale = 0f;
         upgradePanel.SetActive(true);
-        Time.timeScale = 0.0f;
+
+        option1 = CreateFromRandomSO();
+        option2 = CreateFromRandomSO();
+        option3 = CreateFromRandomSO();
+
+        upgradeDescriptionOne.text = $"{option1.Name}\n{option1.Description}";
+        upgradeDescriptionTwo.text = $"{option2.Name}\n{option2.Description}";
+        upgradeDescriptionThree.text = $"{option3.Name}\n{option3.Description}";
     }
 
-    public void IncreaseAttackSpeed()
+    UpgradeEffect CreateFromRandomSO()
     {
-        playerCombat.shootCooldown = playerCombat.shootCooldown * 0.90f;
-        Time.timeScale = 1.0f;
-        upgradePanel.SetActive(false);
+        UpgradeEffectBase baseSO = upgradePool[Random.Range(0, upgradePool.Count)];
+        return new UpgradeEffect(baseSO);
     }
 
-    public void IncreaseBulletSize()
-    {
-        playerCombat.bulletSize = playerCombat.bulletSize * 1.10f;
-        Time.timeScale = 1.0f;
-        upgradePanel.SetActive(false);
-    }
+    // BUTTON EVENTS
+    public void ChooseUpgradeOne() => ApplyAndClose(option1);
+    public void ChooseUpgradeTwo() => ApplyAndClose(option2);
+    public void ChooseUpgradeThree() => ApplyAndClose(option3);
 
-    public void IncreaseBulletSpeed()
+    void ApplyAndClose(UpgradeEffect chosen)
     {
-        playerCombat.bulletSpeed = playerCombat.bulletSpeed * 1.10f;
-        Time.timeScale = 1.0f;
+        chosen.Apply(playerStats);
+
+        Time.timeScale = 1f;
         upgradePanel.SetActive(false);
     }
 }
