@@ -4,36 +4,56 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject bullet;
-    [SerializeField]
-    public float shootCooldown = 1.5f;
+    [SerializeField] private GameObject bullet;
+
+    [SerializeField] private float shootCooldown = 1.5f;
+    [SerializeField] private float bulletSpeed = 5f;
+    [SerializeField] private Vector3 bulletSize = new Vector3(0.85f, 0.5f, 0.85f);
+
     private bool canFire = true;
 
-    public float bulletSpeed = 5f;
-    public Vector3 bulletSize;
-
-    private bool canUpgrade = true;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float ShootCooldown
     {
-        bulletSize = new Vector3(0.85f, 0.85f, 0.85f);
+        get { return shootCooldown; }
+        set { shootCooldown = Mathf.Max(0.05f, value); }
     }
 
-    // Update is called once per frame
+    public float BulletSpeed
+    {
+        get { return bulletSpeed; }
+        set { bulletSpeed = value; }
+    }
+
+    public float BulletSize
+    {
+        get { return bulletSize.x; }
+        set
+        {
+            bulletSize = new Vector3(value, value, value);
+        }
+    }
+
     void Update()
     {
         if (Input.GetMouseButton(0) && canFire)
         {
             Shooting();
         }
-
-        //StartCoroutine(TemporaryUpgrading());
     }
 
     void Shooting()
     {
-        Instantiate(bullet, transform.position, transform.rotation);
+        GameObject newBullet = Instantiate(bullet, transform.position, transform.rotation);
+
+        // Apply modified stats to the bullet
+        newBullet.transform.localScale = bulletSize;
+
+        Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = transform.right * bulletSpeed;
+        }
+
         canFire = false;
         StartCoroutine(DelayShot());
     }
@@ -42,21 +62,7 @@ public class PlayerCombat : MonoBehaviour
     {
         yield return new WaitForSeconds(shootCooldown);
         canFire = true;
-        Debug.Log("coroutine initiated");
     }
-
-    //private IEnumerator TemporaryUpgrading()
-    //{
-    //    if (canUpgrade)
-    //    {
-    //        canUpgrade = false;
-    //        yield return new WaitForSeconds(10);
-    //        shootCooldown = shootCooldown / 1.15f;
-    //        bulletSpeed = bulletSpeed * 1.05f;
-    //        yield return new WaitForSeconds(1);
-    //        canUpgrade = true;
-    //    }
-    //}
 
     private void OnCollisionEnter2D(Collision2D other)
     {
