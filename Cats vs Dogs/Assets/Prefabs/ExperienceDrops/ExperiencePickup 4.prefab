@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5350751184172542361}
   - component: {fileID: 2709154506710750130}
   m_Layer: 3
-  m_Name: ExperiencePickup
+  m_Name: ExperiencePickup 4
   m_TagString: Experience
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 0.68867916, g: 1, b: 0.9593529, a: 1}
+  m_Color: {r: 1, g: 0.34701005, b: 0.33647794, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412cd66a494c474469c6e49680454da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experienceAmount: 4
+  experienceAmount: 11
 --- !u!58 &2709154506710750130
 CircleCollider2D:
   m_ObjectHideFlags: 0
