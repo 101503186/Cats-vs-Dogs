@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1193347d8e5644ba37feb4b8c359a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 3.5
   rotateSpeed: 0.0025
   target: {fileID: 0}
   experiencePickup: {fileID: 3724966408157445909, guid: ad45e0a0f3b6d9e4ca392b28806ea714, type: 3}
