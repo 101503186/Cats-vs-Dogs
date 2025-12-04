@@ -2,21 +2,40 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float speed = 3f;
     public float rotateSpeed = 0.0025f;
+
+    [Header("Health")]
+    public int baseHP = 3;
+    public int hpGrowthPerLevel = 1;
+
+    private int currentHP;
 
     public Transform target;
     private Rigidbody2D rb;
 
-    public GameObject experiencePickup;
+    public GameObject[] experienceDrops;
+
+    Experience experience;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
+        experience = FindFirstObjectByType<Experience>();
+
+        InitializeHP();
     }
 
-    // Update is called once per frame
+    // Calculate HP based on player level
+    void InitializeHP()
+    {
+        int playerLevel = (experience != null) ? experience.CurrentLevel : 1;
+
+        currentHP = baseHP + (hpGrowthPerLevel * (playerLevel - 1));
+    }
+
     void Update()
     {
         if (!target)
@@ -54,8 +73,27 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
-            Instantiate(experiencePickup, transform.position, transform.rotation);
+            TakeDamage(1);
         }
+    }
+
+    private void TakeDamage(int amount)
+    {
+        currentHP -= amount;
+
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        if (experienceDrops.Length > 0)
+        {
+            int index = Random.Range(0, experienceDrops.Length);
+            Instantiate(experienceDrops[index], transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
     }
 }
